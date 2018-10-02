@@ -6,24 +6,24 @@
 *       (if additional are added, keep them at the very end!)
 */
 
-var chaiHttp = require('chai-http');
-var chai = require('chai');
-var assert = chai.assert;
-var server = require('../server');
+let chaiHttp = require('chai-http');
+let chai = require('chai');
+let assert = chai.assert;
+let server = require('../server');
 
 chai.use(chaiHttp);
 
-suite('Functional Tests', function() {
+suite('Functional Tests', () => {
 
-  suite('Routing Tests', function() {
+  suite('Routing Tests', () => {
     
-    suite('GET /api/convert => conversion object', function() {
+    suite('GET /api/convert => conversion object', () => {
       
-      test('Convert 10L (valid input)', function(done) {
+      test('Convert 10L (valid input)', (done) => {
        chai.request(server)
         .get('/api/convert')
         .query({input: '10L'})
-        .end(function(err, res){
+        .end((err, res) => {
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 10);
           assert.equal(res.body.initUnit, 'L');
@@ -33,22 +33,22 @@ suite('Functional Tests', function() {
         });
       });
       
-      test('Convert 32g (invalid input unit)', function(done) {
+      test('Convert 32g (invalid input unit)', (done) => {
         
         //done();
       });
       
-      test('Convert 3/7.2/4kg (invalid number)', function(done) {
+      test('Convert 3/7.2/4kg (invalid number)', (done) => {
         
         //done();
       });  
       
-      test('Convert 3/7.2/4kilomegagram (invalid number and unit)', function(done) {
+      test('Convert 3/7.2/4kilomegagram (invalid number and unit)', (done) => {
         
         //done();
       });
       
-      test('Convert kg (no number)', function(done) {
+      test('Convert kg (no number)', (done) => {
         
         //done();
       });
