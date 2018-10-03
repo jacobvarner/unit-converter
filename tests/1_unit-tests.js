@@ -88,7 +88,7 @@ suite('Unit Tests', () => {
   suite('Function convertHandler.spellOutUnit(unit)', () => {
     
     test('For Each Valid Unit Inputs', (done) => {
-      let input = ['gallons', 'liters', 'miles', 'kilometers', 'pounds', 'kilograms'];
+      let input = ['l', 'gal', 'km', 'mi', 'kg', 'lbs'];
       let expect = ['liters', 'gallons', 'kilometers', 'miles', 'kilograms', 'pounds'];
       input.forEach((element, index) => {
         assert.equal(convertHandler.spellOutUnit(element), expect[index]);
@@ -130,7 +130,7 @@ suite('Unit Tests', () => {
     
     test('Lbs to Kg', (done) => {
       let input = [5, 'lbs'];
-      let expected = 12.26796;
+      let expected = 2.26796;
       assert.approximately(convertHandler.convert(input[0], input[1]), expected, 0.1);
       done();
     });
